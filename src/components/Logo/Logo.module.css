@@ -1,0 +1,18 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  display: block;
+  margin-right: 10px;
+  filter: invert(100%);
+  width: 188px;
+}
+
+.title {
+  font-size: 22px;
+  text-transform: uppercase;
+}

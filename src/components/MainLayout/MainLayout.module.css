@@ -1,0 +1,82 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+}
+
+@keyframes headerBg {
+  0% {
+    background: linear-gradient(270deg, #022b3a, #1f7a8c);
+    background-size: 150%;
+  }
+  12% {
+    background: linear-gradient(225deg, #022b3a, #1f7a8c);
+    background-size: 145%;
+  }
+  25% {
+    background: linear-gradient(180deg, #022b3a, #1f7a8c);
+    background-size: 140%;
+  }
+  33% {
+    background: linear-gradient(135deg, #022b3a, #1f7a8c);
+    background-size: 135%;
+  }
+  50% {
+    background: linear-gradient(90deg, #022b3a, #1f7a8c);
+    background-size: 130%;
+  }
+  66% {
+    background: linear-gradient(135deg, #022b3a, #1f7a8c);
+    background-size: 135%;
+  }
+  75% {
+    background: linear-gradient(180deg, #022b3a, #1f7a8c);
+    background-size: 140%;
+  }
+  88% {
+    background: linear-gradient(225deg, #022b3a, #1f7a8c);
+    background-size: 145%;
+  }
+  100% {
+    background: linear-gradient(270deg, #022b3a, #1f7a8c);
+    background-size: 150%;
+  }
+}
+
+.header {
+  color: #fff;
+  padding: 15px 20px;
+  transition: all 0.3s ease-in;
+  animation-name: headerBg;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  border-bottom: 2px solid #fff;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.main {
+  flex: 1;
+  background: #e1e5f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.main > * {
+  width: 100%;
+}
+
+.footer {
+  color: #fff;
+  background: #022b3a;
+  text-align: center;
+  padding: 20px;
+  border-top: 2px solid #fff;
+  box-shadow: 0 -2px 14px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
