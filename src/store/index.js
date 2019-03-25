@@ -1,2 +1,2 @@
 export { default } from './store';
-export { keywordsSet, resultsSet } from './duck';
+export { ACTIONS } from './duck';

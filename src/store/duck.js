@@ -3,15 +3,20 @@ const KEYWORDS_SET = 'KEYWORDS/SET';
 const RESULTS_SET = 'RESULTS/SET';
 
 // ACTION CREATORS
-export const keywordsSet = payload => ({
+const keywordsSet = payload => ({
   type: KEYWORDS_SET,
   payload,
 });
 
-export const resultsSet = payload => ({
+const resultsSet = payload => ({
   type: RESULTS_SET,
   payload,
 });
+
+export const ACTIONS = {
+  keywordsSet,
+  resultsSet,
+};
 
 // INITIAL STATE
 

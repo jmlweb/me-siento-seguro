@@ -5,9 +5,11 @@ import { connect } from 'react-redux';
 import {
   List, Logo, MainLayout, Search,
 } from '../components';
-import { keywordsSet, resultsSet } from '../store';
+import { ACTIONS } from '../store';
 
 import getPlaceholder from './getPlaceholder';
+
+const today = new Date();
 
 class App extends PureComponent {
   static defaultProps = {
@@ -66,7 +68,7 @@ class App extends PureComponent {
   };
 
   render() {
-    const placeholder = getPlaceholder();
+    const placeholder = getPlaceholder(today);
     const { keywords, results, keywordsSet } = this.props;
     const { hasBeenQueried } = this.state;
     const main = (
@@ -97,8 +99,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  keywordsSet,
-  resultsSet,
+  keywordsSet: ACTIONS.keywordsSet,
+  resultsSet: ACTIONS.resultsSet,
 };
 
 export default connect(
