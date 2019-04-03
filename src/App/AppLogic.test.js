@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import AppLogic from './AppLogic';
 
@@ -10,7 +10,7 @@ describe('AppLogic', () => {
     const element = (
       <AppLogic keywords="" results={[]} resultsSet={resultsSet} keywordsSet={keywordsSet} />
     );
-    const wrapper = shallow(element);
+    const wrapper = mount(element);
     expect(wrapper).toBeTruthy();
   });
 });
