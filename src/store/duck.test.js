@@ -24,5 +24,6 @@ describe('duck', () => {
       keywords: undefined,
       results: ['a', 'b', 'c'],
     });
+    expect(reducer(undefined, undefined)).toEqual(initialState);
   });
 });

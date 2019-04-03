@@ -27,7 +27,7 @@ export const initialState = {
 
 // REDUCER
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action = {}) => {
   const { type, payload } = action;
   switch (type) {
     case KEYWORDS_SET:
