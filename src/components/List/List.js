@@ -3,21 +3,24 @@ import PropTypes from 'prop-types';
 
 import styles from './List.module.css';
 
-const getSpanWStyles = ({ width }) => {
-  if (width > 130 * 4) {
+export const ITEM_WIDTH = 130;
+export const ITEM_HEIGHT = 90;
+
+export const getSpanWStyles = ({ width }) => {
+  if (width > ITEM_WIDTH * 4) {
     return styles.spanW3;
   }
-  if (width > 130 * 3) {
+  if (width > ITEM_WIDTH * 3) {
     return styles.spanW2;
   }
   return styles.spanW1;
 };
 
-const getSpanHStyles = ({ height }) => {
-  if (height > 90 * 4) {
+export const getSpanHStyles = ({ height }) => {
+  if (height > ITEM_HEIGHT * 4) {
     return styles.spanH3;
   }
-  if (height > 90 * 3) {
+  if (height > ITEM_HEIGHT * 3) {
     return styles.spanH2;
   }
   return styles.spanH1;
