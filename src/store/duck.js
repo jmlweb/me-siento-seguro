@@ -1,6 +1,6 @@
 // ACTION TYPES
-const KEYWORDS_SET = 'KEYWORDS/SET';
-const RESULTS_SET = 'RESULTS/SET';
+export const KEYWORDS_SET = 'KEYWORDS/SET';
+export const RESULTS_SET = 'RESULTS/SET';
 
 // ACTION CREATORS
 const keywordsSet = payload => ({
@@ -20,7 +20,7 @@ export const ACTIONS = {
 
 // INITIAL STATE
 
-const initialState = {
+export const initialState = {
   keywords: undefined,
   results: [],
 };
