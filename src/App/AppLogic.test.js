@@ -1,17 +1,35 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import { AppLogicComponent, mapStateToProps } from './AppLogic';
+import {
+  AppLogicComponent,
+  getDocumentTitle,
+  getVerb,
+  mapStateToProps,
+  SEARCH,
+  TRENDING,
+} from './AppLogic';
 
 describe('AppLogic', () => {
-  describe('mapStateToProps', () => {
-    const state = {
-      keywords: 'foo',
-      results: ['bar'],
-    };
-    const propsFromState = mapStateToProps(state);
-    expect(propsFromState.keywords).toBe('foo');
-    expect(propsFromState.results).toEqual(['bar']);
+  describe('extra', () => {
+    test('mapStateToProps', () => {
+      const state = {
+        keywords: 'foo',
+        results: ['bar'],
+      };
+      const propsFromState = mapStateToProps(state);
+      expect(propsFromState.keywords).toBe('foo');
+      expect(propsFromState.results).toEqual(['bar']);
+    });
+    test('getDocumentTitle', () => {
+      expect(getDocumentTitle(undefined)).toBe('GiphySearch / Enter search');
+      expect(getDocumentTitle('')).toBe('GiphySearch / Trending');
+      expect(getDocumentTitle('foo')).toBe('GiphySearch / foo');
+    });
+    test('getVerb', () => {
+      expect(getVerb('')).toBe(TRENDING);
+      expect(getVerb('foo')).toBe(SEARCH);
+    });
   });
   describe('Component', () => {
     const resultsSet = jest.fn();

@@ -11,6 +11,13 @@ import getPlaceholder from './getPlaceholder';
 
 const today = new Date();
 
+export const SEARCH = 'search';
+export const TRENDING = 'trending';
+
+export const getDocumentTitle = keywords => `GiphySearch / ${keywords || (keywords === undefined ? 'Enter search' : 'Trending')}`;
+
+export const getVerb = keywords => (keywords.length ? SEARCH : TRENDING);
+
 export class AppLogicComponent extends PureComponent {
   static defaultProps = {
     keywords: undefined,
@@ -40,10 +47,9 @@ export class AppLogicComponent extends PureComponent {
 
   doFetch = () => {
     const { keywords, resultsSet } = this.props;
-    document.title = `GiphySearch / ${keywords
-      || (keywords === undefined ? 'Enter search' : 'Trending')}`;
+    document.title = getDocumentTitle(keywords);
     if (keywords !== undefined) {
-      const verb = keywords.length ? 'search' : 'trending';
+      const verb = getVerb(keywords);
       fetch(
         `http://api.giphy.com/v1/gifs/${verb}?q=${keywords}&api_key=${
           process.env.REACT_APP_GIPHY_KEY
