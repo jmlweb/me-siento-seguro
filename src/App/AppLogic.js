@@ -11,7 +11,7 @@ import getPlaceholder from './getPlaceholder';
 
 const today = new Date();
 
-class App extends PureComponent {
+export class AppLogicComponent extends PureComponent {
   static defaultProps = {
     keywords: undefined,
   };
@@ -93,7 +93,7 @@ class App extends PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   keywords: state.keywords,
   results: state.results,
 });
@@ -106,4 +106,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(App);
+)(AppLogicComponent);
