@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List snapshot 1`] = `
+<div
+  className="wrapper"
+>
+  <div
+    className="item spanW1 spanH1"
+  >
+    <img
+      alt=""
+      className="image"
+      src="foo.jpg"
+    />
+    <p
+      className="title"
+    >
+      foo
+    </p>
+  </div>
+</div>
+`;
