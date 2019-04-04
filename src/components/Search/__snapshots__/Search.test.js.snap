@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search snapshot 1`] = `
+<div
+  className="wrapper"
+>
+  <form
+    className="form"
+    onSubmit={[Function]}
+  >
+    <p>
+      Foo
+    </p>
+    <div
+      className="inputWrapper"
+    >
+      <input
+        className="input"
+        onChange={[Function]}
+        onSubmit={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "foo",
+              ],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
+          }
+        }
+        type="text"
+        value=""
+      />
+      <button
+        className="button"
+        type="submit"
+      >
+        <img
+          alt="search"
+          height="24"
+          src="search.svg"
+          width="24"
+        />
+      </button>
+    </div>
+  </form>
+</div>
+`;
