@@ -10,6 +10,10 @@ import {
   TRENDING,
 } from './AppLogic';
 
+import fetchItems from './fetchItems';
+
+jest.mock('./fetchItems');
+
 describe('AppLogic', () => {
   describe('extra', () => {
     test('mapStateToProps', () => {
@@ -34,17 +38,29 @@ describe('AppLogic', () => {
   describe('Component', () => {
     const resultsSet = jest.fn();
     const keywordsSet = jest.fn();
-    test('it works', () => {
-      const element = (
-        <AppLogicComponent
-          keywords=""
-          results={[]}
-          resultsSet={resultsSet}
-          keywordsSet={keywordsSet}
-        />
-      );
-      const wrapper = mount(element);
+    const element = (
+      <AppLogicComponent results={[]} resultsSet={resultsSet} keywordsSet={keywordsSet} />
+    );
+    let wrapper;
+    beforeEach(() => {
+      wrapper = mount(element);
+    });
+    afterEach(() => {
+      wrapper.unmount();
+      jest.clearAllMocks();
+    });
+    test('it renders', () => {
+      wrapper = mount(element);
       expect(wrapper).toBeTruthy();
+    });
+    test('it does not call to fetchItems because keywords is undefined', () => {
+      expect(fetchItems).not.toHaveBeenCalled();
+    });
+    test('it calls to fetchItems when setting some keyword', () => {
+      wrapper.setProps({
+        keywords: 'foo',
+      });
+      expect(fetchItems).toHaveBeenCalled();
     });
   });
 });

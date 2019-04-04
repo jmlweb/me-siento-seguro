@@ -8,6 +8,7 @@ import {
 import { ACTIONS } from '../store';
 
 import getPlaceholder from './getPlaceholder';
+import fetchItems from './fetchItems';
 
 const today = new Date();
 
@@ -50,26 +51,17 @@ export class AppLogicComponent extends PureComponent {
     document.title = getDocumentTitle(keywords);
     if (keywords !== undefined) {
       const verb = getVerb(keywords);
-      fetch(
-        `http://api.giphy.com/v1/gifs/${verb}?q=${keywords}&api_key=${
-          process.env.REACT_APP_GIPHY_KEY
-        }&limit=25`,
-      )
-        .then(response => response.json())
-        .then((json) => {
-          const results = json.data.map(({ title, images: { original }, id }) => ({
-            title,
-            image: original,
-            id,
-          }));
-          resultsSet(results);
-          this.setState({
-            hasBeenQueried: true,
-          });
-        })
-        .catch((error) => {
-          console.error(error.message);
+      fetchItems(verb, keywords).then((json) => {
+        const results = json.data.map(({ title, images: { original }, id }) => ({
+          title,
+          image: original,
+          id,
+        }));
+        resultsSet(results);
+        this.setState({
+          hasBeenQueried: true,
         });
+      });
     }
   };
 
