@@ -21,4 +21,8 @@ describe('getPlaceholder', () => {
     const selDate = new Date('2018-1-01');
     expect(getPlaceholder(selDate)).toBe(PLACEHOLDERS.WINTER);
   });
+  test('snapshot', () => {
+    const selDate = new Date('2018-12-01');
+    expect(getPlaceholder(selDate)).toMatchSnapshot();
+  });
 });
